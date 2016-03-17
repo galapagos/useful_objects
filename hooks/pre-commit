@@ -15,4 +15,4 @@ for FILE in `git diff-index --name-status $against -- | grep -E '^[AUM].*\.rb$'|
   MODIFIED_FILES="${MODIFIED_FILES} ${FILE}"
 done
 
-rubocop ${MODIFIED_FILES}
+bundle exec rubocop ${MODIFIED_FILES}
