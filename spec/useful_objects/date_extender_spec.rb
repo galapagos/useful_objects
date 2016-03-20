@@ -33,6 +33,13 @@ RSpec.describe UsefulObjects::DateExtender do
         its([1]) { is_expected.to eq head.next_year }
         its(:last) { is_expected.to eq tail }
       end
+
+      context 'step by week' do
+        let(:unit) { :week }
+        its([0]) { is_expected.to eq head }
+        its([1]) { is_expected.to eq head + 7 }
+        its(:last) { is_expected.to eq tail }
+      end
     end
   end
 end
