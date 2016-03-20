@@ -8,7 +8,7 @@ module UsefulObjects
         Enumerator.new do |y|
           while head <= tail
             y << head
-            head = head.send("next_#{unit}")
+            head = (unit.to_sym == :week) ? head + 7 : head.send("next_#{unit}")
           end
         end
       end
