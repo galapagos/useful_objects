@@ -40,6 +40,17 @@ RSpec.describe UsefulObjects::DateExtender do
         its([1]) { is_expected.to eq head + 7 }
         its(:last) { is_expected.to eq Date.new(2010, 1, 9) }
       end
+
+      context 'undefined unit' do
+        let(:unit) { :half_month }
+        it 'is expected to rise ArgumentError' do
+          expect { head.step_by_unit(tail, unit: unit) }.to(
+            raise_error(
+              ArgumentError, 'Assignable unit only day, week, month, year.'
+            )
+          )
+        end
+      end
     end
   end
 end
