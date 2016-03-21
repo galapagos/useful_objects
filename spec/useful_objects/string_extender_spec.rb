@@ -1,5 +1,5 @@
 RSpec.describe UsefulObjects::StringExtender do
-  using StringExtender
+  using UsefulObjects::StringExtender
 
   describe 'instance methods' do
     describe 'parse_json' do
