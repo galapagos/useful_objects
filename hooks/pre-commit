@@ -11,8 +11,8 @@ fi
 # Redirect output to stderr.
 exec 1>&2
 
-for FILE in `git diff-index --name-status $against -- | grep -E '^[AUM].*\.rb$'| cut -c3-`; do
-  MODIFIED_FILES="${MODIFIED_FILES} ${FILE}"
-done
+MODIFIED_FILES=`git diff-index --name-status $against -- | grep -E '^[AUM].*\.rb$'| cut -c3-`
 
-bundle exec rubocop ${MODIFIED_FILES}
+if [ -n "${MODIFIED_FILES}" ]; then
+  bundle exec rubocop -a ${MODIFIED_FILES}
+fi
