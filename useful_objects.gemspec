@@ -9,8 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['k-motoyan']
   spec.email         = ['k.motoyan888@gmail.com']
 
-  spec.summary       = 'TODO: Write a short summary, because Rubygems requires one.'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
+  spec.summary       = 'Extensions for ruby standard classes.'
   spec.homepage      = 'https://github.com/k-motoyan/useful_objects.git'
   spec.license       = 'MIT'
 
