@@ -14,5 +14,5 @@ exec 1>&2
 MODIFIED_FILES=`git diff-index --name-status $against -- | grep -E '^[AUM].*\.rb$'| cut -c3-`
 
 if [ -n "${MODIFIED_FILES}" ]; then
-  bundle exec rubocop --force-exclusion -c .rubocop.yml ${MODIFIED_FILES}
+  bundle exec rubocop -a ${MODIFIED_FILES}
 fi
