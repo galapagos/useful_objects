@@ -12,6 +12,20 @@ module UsefulObjects
         end
       end
 
+      def conditional_method(name)
+        instance_var_name = :"@original_#{name}"
+
+        unless instance_variable_defined? instance_var_name
+          instance_variable_set instance_var_name, method(name)
+        end
+
+        define_singleton_method(name) do |*args|
+          return unless yield(self)
+          original_method = instance_variable_get instance_var_name
+          proc_exec original_method, args
+        end
+      end
+
       private
 
       def convert_string_to_bool(value)
@@ -20,6 +34,14 @@ module UsefulObjects
 
       def convert_number_to_bool(value)
         value == 0 ? false : true
+      end
+
+      def proc_exec(proc, args)
+        if args.empty?
+          proc.call
+        else
+          proc.call(*args)
+        end
       end
     end
   end

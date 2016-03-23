@@ -25,6 +25,35 @@ Or install it yourself as:
 
 * __to_bool__ Cast all object to boolean type.
 
+```rb
+using ObjectExtender
+
+# cast to false cases.
+'false'.to_bool # => false
+0.to_bool       # => false
+0.0.to_bool     # => false
+nil.to_bool     # => false
+false.to_bool   # => false
+
+# other case all true.
+''.to_bool         # => true
+true.to_bool       # => true
+Object.new.to_bool # => true
+```
+
+* __conditional_method__ By the return value of the block which gave, this change the behavior of the method. 
+
+```rb
+using ObjectExtender
+
+char = 'a'
+char.upcase # => 'A'
+
+# when block returns false, that the method dose not work.
+char.conditional_method(:upcase) { |_object| false }
+char.upcase # => nil
+```
+
 ### DateClass
 
 * __step_by_unit__ Returns enumerator that step by given unit(year, month, week, day).
