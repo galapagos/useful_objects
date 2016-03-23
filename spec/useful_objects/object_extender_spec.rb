@@ -63,5 +63,34 @@ RSpec.describe UsefulObjects::ObjectExtender do
         it { is_expected.to be_truthy }
       end
     end
+
+    describe 'conditional_method' do
+      subject { value.upcase }
+
+      let(:value) { 'a' }
+
+      context 'when given block returns false' do
+        before do
+          value.conditional_method(:upcase) { |_| false }
+        end
+        it { is_expected.to be_nil }
+      end
+
+      context 'when given block returns true' do
+        before do
+          value.conditional_method(:upcase) { |_| true }
+        end
+        it { is_expected.to eq value.upcase }
+      end
+
+      context 'when need argument method' do
+        before do
+          value.conditional_method(:gsub) { |_| true }
+        end
+        it 'expect behave commonly' do
+          expect(value.tr('a', 'A')).to eq 'A'
+        end
+      end
+    end
   end
 end
