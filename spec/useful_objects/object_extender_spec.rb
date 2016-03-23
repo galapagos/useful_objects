@@ -85,7 +85,7 @@ RSpec.describe UsefulObjects::ObjectExtender do
 
       context 'when need argument method' do
         before do
-          value.conditional_method(:gsub) { |_| true }
+          value.conditional_method(:tr) { |_| true }
         end
         it 'expect behave commonly' do
           expect(value.tr('a', 'A')).to eq 'A'
