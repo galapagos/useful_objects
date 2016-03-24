@@ -58,6 +58,32 @@ char.upcase # => nil
 
 * __step_by_unit__ Returns enumerator that step by given unit(year, month, week, day).
 
+```rb
+using DateExtender
+
+from = Date.new 2000, 1, 1
+
+from.step_by_unit(Date.new(2000, 1, 3)).each_with_object('%Y-%m-%d').map(&:strftime)
+# => '2000-01-01'
+# => '2000-01-02'
+# => '2000-01-03'
+
+from.step_by_unit(Date.new(2000, 3, 1), unit: :month).each_with_object('%Y-%m-%d').map(&:strftime)
+# => '2000-01-01'
+# => '2000-02-01'
+# => '2000-03-01'
+
+from.step_by_unit(Date.new(2002, 1, 1), unit: :year).each_with_object('%Y-%m-%d').map(&:strftime)
+# => '2000-01-01'
+# => '2001-01-01'
+# => '2002-01-01'
+
+from.step_by_unit(Date.new(2000, 1, 15), unit: :week).each_with_object('%Y-%m-%d').map(&:strftime)
+# => '2000-01-01'
+# => '2000-01-08'
+# => '2000-01-15'
+```
+
 ### StringClass
 
 * __parse_json__ Parse json string, if not parsed string, return nil.
