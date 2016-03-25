@@ -1,6 +1,6 @@
 # UsefulObjects
 
-This gem making it possible to expand the instance using a function of refinement locally.  
+This gem making it possible to expand the instance using a function of refinement locally.
 Because that expand the function locally, keepable influence a minimum for a change.
 
 ## Installation
@@ -26,7 +26,7 @@ Or install it yourself as:
 * __to_bool__ Cast all object to boolean type.
 
 ```rb
-using ObjectExtender
+using UsefulObjects::ObjectExtender
 
 # cast to false cases.
 'false'.to_bool # => false
@@ -41,10 +41,10 @@ true.to_bool       # => true
 Object.new.to_bool # => true
 ```
 
-* __conditional_method__ By the return value of the block which gave, this change the behavior of the method. 
+* __conditional_method__ By the return value of the block which gave, this change the behavior of the method.
 
 ```rb
-using ObjectExtender
+using UsefulObjects::ObjectExtender
 
 char = 'a'
 char.upcase # => 'A'
@@ -59,7 +59,7 @@ char.upcase # => nil
 * __step_by_unit__ Returns enumerator that step by given unit(year, month, week, day).
 
 ```rb
-using DateExtender
+using UsefulObjects::DateExtender
 
 from = Date.new 2000, 1, 1
 
@@ -82,6 +82,17 @@ from.step_by_unit(Date.new(2000, 1, 15), unit: :week).each_with_object('%Y-%m-%d
 # => '2000-01-01'
 # => '2000-01-08'
 # => '2000-01-15'
+```
+
+### TimeClass
+
+* __millisec__ Get millisec
+
+```rb
+using UsefulObjects::DateExtender
+
+time = Time.at(946652400.001) # 2000-01-01 00:00:00.001
+time.millisec # => 1
 ```
 
 ### StringClass
