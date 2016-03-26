@@ -5,13 +5,9 @@ module UsefulObjects
   module StringExtender
     refine String do
       def parse_json
-        parse_json!
+        JSON.parse(self)
       rescue JSON::ParserError => _e
         nil
-      end
-
-      def parse_json!
-        JSON.parse(self)
       end
     end
   end
