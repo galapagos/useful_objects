@@ -98,7 +98,13 @@ time.millisec # => 1
 ### StringClass
 
 * __parse_json__ Parse json string, if not parsed string, return nil.
-* __parse_json!__ Parse json string, if not parsed string, raise JSON::ParserError.
+
+```rb
+using UsefulObjects::StringExtender
+
+'aaa'.parse_json # => nil
+'{ "a": "a" }'.parse_json # => { "a" => "a" }
+```
 
 ## Development
 
