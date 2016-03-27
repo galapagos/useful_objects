@@ -86,13 +86,22 @@ from.step_by_unit(Date.new(2000, 1, 15), unit: :week).each_with_object('%Y-%m-%d
 
 ### TimeClass
 
-* __millisec__ Get millisec
+* __millisec__ Get millisec.
 
 ```rb
-using UsefulObjects::DateExtender
+using UsefulObjects::TimeExtender
 
 time = Time.at(946652400.001) # 2000-01-01 00:00:00.001
 time.millisec # => 1
+```
+
+* __to_time__ Cast integer or float to time.
+
+```rb
+using UsefulObjects::TimeExtender
+
+946652400.to_time # => 2000-01-01 00:00:00 +0900
+946652400.001.to_time # => 2000-01-01 00:00:00 +0900
 ```
 
 ### StringClass
