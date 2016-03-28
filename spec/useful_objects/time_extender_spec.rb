@@ -20,12 +20,12 @@ RSpec.describe UsefulObjects::TimeExtender do
       subject { value.to_time }
 
       context 'value is integer' do
-        let(:value) { 946652400 }
+        let(:value) { 946_652_400 }
         it { is_expected.to be_instance_of Time }
       end
 
       context 'value is float' do
-        let(:value) { 946652400.001 }
+        let(:value) { 946_652_400.001 }
         it { is_expected.to be_instance_of Time }
       end
     end
