@@ -1,11 +1,11 @@
 module UsefulObjects
   # External Iterator methods.
   module IteratorExtender
-    refine Enumerator do
-      def map_with_object(arg, proc = nil, &block)
-        raise ArgumentError if !block_given? && proc.nil?
-
+    # Iterator common module.
+    module Common
+      def map_with_object(proc, arg = nil, &block)
         if block_given?
+          arg = proc
           each_with_object(arg).map(&block)
         else
           each_with_object(arg).map(&proc.to_sym)
@@ -13,16 +13,12 @@ module UsefulObjects
       end
     end
 
-    refine Array do
-      def map_with_object(arg, proc = nil, &block)
-        raise ArgumentError if !block_given? && proc.nil?
+    refine Enumerator do
+      include Common
+    end
 
-        if block_given?
-          each_with_object(arg).map(&block)
-        else
-          each_with_object(arg).map(&proc.to_sym)
-        end
-      end
+    refine Array do
+      include Common
     end
   end
 end
