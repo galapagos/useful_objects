@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/galapagos/useful_objects.svg?branch=master)](https://travis-ci.org/galapagos/useful_objects)
 [![Code Climate](https://codeclimate.com/github/galapagos/useful_objects/badges/gpa.svg)](https://codeclimate.com/github/galapagos/useful_objects)
+[![Test Coverage](https://codeclimate.com/github/galapagos/useful_objects/badges/coverage.svg)](https://codeclimate.com/github/galapagos/useful_objects/coverage)
 
 This gem making it possible to expand the instance using a function of refinement locally.
 Because that expand the function locally, keepable influence a minimum for a change.
