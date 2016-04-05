@@ -10,14 +10,13 @@ Gem::Specification.new do |spec|
   spec.email         = ['k.motoyan888@gmail.com']
 
   spec.summary       = 'Extensions for ruby standard classes.'
-  spec.homepage      = 'https://github.com/k-motoyan/useful_objects.git'
+  spec.homepage      = 'https://github.com/galapagos/useful_objects.git'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.executables   = []
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.11'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-its'
