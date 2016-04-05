@@ -1,9 +1,12 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.2
+  - 2.2.4
   - 2.3.0
   - ruby-head
 matrix:
   allow_failures:
     - rvm: ruby-head
+addons:
+  code_climate:
+    repo_token: f73bb36c9de22c9f861286c250c7176f078964e2d5d5c32172362f70c38a6101
