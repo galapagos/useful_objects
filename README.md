@@ -123,6 +123,8 @@ using UsefulObjects::StringExtender
 * __map_with_object__ Alias for `iterator.each_with_object(assign_val).map(&:proc)`.
 
 ```rb
+using UsefulObjects::IteratorExtender
+
 %w(a b c).map_with_object(:*, 3) => ['aaa', 'bbb', 'ccc']
 %w(a b c).map_with_object(3) { |item, num| item * num } => ['aaa', 'bbb', 'ccc']
 ```
