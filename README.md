@@ -1,6 +1,7 @@
 # UsefulObjects
 
 [![Build Status](https://travis-ci.org/galapagos/useful_objects.svg?branch=master)](https://travis-ci.org/galapagos/useful_objects)
+[![Code Climate](https://codeclimate.com/github/galapagos/useful_objects/badges/gpa.svg)](https://codeclimate.com/github/galapagos/useful_objects)
 
 This gem making it possible to expand the instance using a function of refinement locally.
 Because that expand the function locally, keepable influence a minimum for a change.
