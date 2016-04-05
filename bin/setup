@@ -4,7 +4,7 @@ ROOT_DIR=$(cd $(dirname $0)/..;pwd)
 GIT_DIR="${ROOT_DIR}/.git"
 HOOK_SCRIPT_DIR="${ROOT_DIR}/hooks"
 
-bundle install --path=vendor/bundle
+bundle install --path=.bundle
 
 cat << EOS > ${GIT_DIR}/hooks/pre-commit
 #!/usr/bin/env bash
